@@ -1,0 +1,689 @@
+/* www/styles.css */
+/* Florida Tech COE Branding - Complete Stylesheet */
+/* =============================================================================
+   COLOR PALETTE
+   =============================================================================
+   Primary:    #8B0000  (Burgundy - main brand color)
+   Secondary:  #D8D4D0  (Light Gray - background)
+   Accent:     #C5A95F  (Gold - highlights)
+   Dark:       #2C2C2C  (Charcoal - text)
+   Light:      #F5F3F0  (Off-white - content areas)
+   Success:    #2E7D32  (Green - positive indicators)
+   Error:      #C62828  (Red - errors/warnings)
+   ============================================================================= */
+
+/* CSS Variables for consistent theming */
+:root {
+  --ft-burgundy: #8B0000;
+  --ft-burgundy-dark: #6D0000;
+  --ft-burgundy-darker: #4D0000;
+  --ft-gold: #C5A95F;
+  --ft-gold-dark: #A89050;
+  --ft-gray: #D8D4D0;
+  --ft-charcoal: #2C2C2C;
+  --ft-offwhite: #F5F3F0;
+  --ft-green: #2E7D32;
+  --ft-green-dark: #1B5E20;
+  --ft-red: #C62828;
+}
+
+/* =============================================================================
+   GLOBAL STYLES
+   ============================================================================= */
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--ft-gray);
+  color: var(--ft-charcoal);
+}
+
+/* =============================================================================
+   HEADER/NAVBAR - Must come early to override defaults
+   ============================================================================= */
+
+/* Force navbar to burgundy */
+.main-header .navbar {
+  background-color: var(--ft-burgundy) !important;
+  border-color: var(--ft-burgundy-dark) !important;
+  min-height: 50px;
+}
+
+.main-header .navbar-brand {
+  background-color: var(--ft-burgundy) !important;
+  color: #FFFFFF !important;
+  float: left !important;
+  display: flex !important;
+  align-items: center !important;
+  margin-left: 50px !important;
+}
+
+.main-header .navbar-brand:hover {
+  color: #FFFFFF !important;
+}
+
+/* Move hamburger toggle to LEFT side */
+.main-header .sidebar-toggle {
+  float: left !important;
+  order: -1 !important;
+  margin-right: 10px !important;
+  margin-left: 0 !important;
+  position: relative !important;
+  left: 0 !important;
+  color: #FFFFFF !important;
+}
+
+.main-header .sidebar-toggle:hover {
+  background-color: var(--ft-burgundy-dark) !important;
+  color: #FFFFFF !important;
+}
+
+/* Logo styling */
+.main-header .logo {
+  background-color: var(--ft-burgundy) !important;
+  color: #FFFFFF !important;
+  font-weight: bold;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Navbar nav items (right side) */
+.main-header .navbar-nav {
+  float: right !important;
+}
+
+.main-header .navbar-nav > li > a {
+  color: #FFFFFF !important;
+}
+
+.main-header .navbar-nav > li > a:hover {
+  background-color: var(--ft-burgundy-dark) !important;
+  color: #FFFFFF !important;
+}
+
+/* =============================================================================
+   SIDEBAR - Override AdminLTE skin defaults completely
+   ============================================================================= */
+
+/* Target ALL sidebar wrapper elements to ensure uniform tan color */
+.main-sidebar,
+.left-side,
+.sidebar,
+.skin-blue .main-sidebar,
+.skin-blue .left-side,
+.skin-blue .wrapper .main-sidebar {
+  background-color: var(--ft-offwhite) !important;
+}
+
+/* Ensure sidebar-menu background matches */
+.skin-blue .sidebar-menu > li > a,
+.sidebar-menu > li > a {
+  color: var(--ft-charcoal) !important;
+  background-color: transparent !important;
+  padding: 12px 15px;
+  border-left: 3px solid transparent;
+}
+
+.skin-blue .sidebar-menu > li > a:hover,
+.sidebar-menu > li > a:hover {
+  background-color: #E8E4E0 !important;
+  border-left-color: var(--ft-gold) !important;
+  color: var(--ft-charcoal) !important;
+}
+
+/* Sidebar active item */
+.skin-blue .sidebar-menu > li.active > a,
+.sidebar-menu > li.active > a {
+  background: linear-gradient(to right, var(--ft-burgundy), var(--ft-burgundy-dark)) !important;
+  border-left-color: var(--ft-gold) !important;
+  color: #FFFFFF !important;
+}
+
+.skin-blue .sidebar-menu > li.active > a:hover,
+.sidebar-menu > li.active > a:hover {
+  background-color: var(--ft-burgundy-dark) !important;
+  color: #FFFFFF !important;
+}
+
+.sidebar .user-panel {
+  background-color: var(--ft-offwhite);
+  border-bottom: 2px solid var(--ft-burgundy);
+}
+
+/* Sidebar section headers */
+.skin-blue .sidebar-menu > li.header {
+  background-color: var(--ft-offwhite) !important;
+  color: var(--ft-charcoal) !important;
+}
+
+/* =============================================================================
+   BOX STYLING
+   Uses body.skin-blue to beat AdminLTE's .box.box-solid.box-X specificity
+   AdminLTE loads AFTER custom CSS, so we need higher specificity to win
+   ============================================================================= */
+
+.box {
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-top: 3px solid var(--ft-burgundy);
+  background-color: #FFFFFF;
+}
+
+/* ---- PRIMARY BOXES (burgundy header, white text) ---- */
+body.skin-blue .box.box-primary {
+  border-top-color: var(--ft-burgundy) !important;
+}
+
+body.skin-blue .box.box-solid.box-primary > .box-header,
+body.skin-blue .box.box-primary > .box-header {
+  background-color: var(--ft-burgundy) !important;
+  border-color: var(--ft-burgundy-dark) !important;
+  color: #FFFFFF !important;
+}
+
+body.skin-blue .box.box-solid.box-primary > .box-header .box-title,
+body.skin-blue .box.box-solid.box-primary > .box-header .btn-box-tool,
+body.skin-blue .box.box-solid.box-primary > .box-header .btn-box-tool i,
+body.skin-blue .box.box-solid.box-primary > .box-header a,
+body.skin-blue .box.box-primary > .box-header .box-title,
+body.skin-blue .box.box-primary > .box-header .btn-box-tool,
+body.skin-blue .box.box-primary > .box-header .btn-box-tool i,
+body.skin-blue .box.box-primary > .box-header a {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* ---- INFO BOXES (now burgundy to match primary) ---- */
+body.skin-blue .box.box-info {
+  border-top-color: var(--ft-burgundy) !important;
+}
+
+body.skin-blue .box.box-solid.box-info > .box-header,
+body.skin-blue .box.box-info > .box-header {
+  background-color: var(--ft-burgundy) !important;
+  border-color: var(--ft-burgundy-dark) !important;
+  color: #FFFFFF !important;
+}
+
+body.skin-blue .box.box-solid.box-info > .box-header .box-title,
+body.skin-blue .box.box-solid.box-info > .box-header .btn-box-tool,
+body.skin-blue .box.box-solid.box-info > .box-header .btn-box-tool i,
+body.skin-blue .box.box-solid.box-info > .box-header a,
+body.skin-blue .box.box-info > .box-header .box-title,
+body.skin-blue .box.box-info > .box-header .btn-box-tool,
+body.skin-blue .box.box-info > .box-header .btn-box-tool i,
+body.skin-blue .box.box-info > .box-header a {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* ---- SUCCESS BOXES (green header, white text) ---- */
+body.skin-blue .box.box-success {
+  border-top-color: var(--ft-green) !important;
+}
+
+body.skin-blue .box.box-solid.box-success > .box-header,
+body.skin-blue .box.box-success > .box-header {
+  background-color: var(--ft-green) !important;
+  border-color: var(--ft-green-dark) !important;
+  color: #FFFFFF !important;
+}
+
+body.skin-blue .box.box-solid.box-success > .box-header .box-title,
+body.skin-blue .box.box-solid.box-success > .box-header .btn-box-tool,
+body.skin-blue .box.box-solid.box-success > .box-header .btn-box-tool i,
+body.skin-blue .box.box-solid.box-success > .box-header a,
+body.skin-blue .box.box-success > .box-header .box-title,
+body.skin-blue .box.box-success > .box-header .btn-box-tool,
+body.skin-blue .box.box-success > .box-header .btn-box-tool i,
+body.skin-blue .box.box-success > .box-header a {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* ---- DEFAULT BOX HEADERS (no status class) ---- */
+body.skin-blue .box > .box-header {
+  background-color: var(--ft-burgundy) !important;
+  color: #FFFFFF !important;
+}
+
+body.skin-blue .box > .box-header .box-title,
+body.skin-blue .box > .box-header .btn-box-tool,
+body.skin-blue .box > .box-header .btn-box-tool i {
+  color: #FFFFFF !important;
+}
+
+/* Box titles */
+.box-title {
+  font-weight: bold !important;
+  font-size: 16px;
+}
+
+/* =============================================================================
+   TAB BOXES
+   ============================================================================= */
+
+.nav-tabs-custom {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  background-color: var(--ft-offwhite);
+  border-top: 3px solid var(--ft-burgundy);
+}
+
+.nav-tabs-custom > .nav-tabs {
+  border-bottom-color: var(--ft-burgundy);
+}
+
+.nav-tabs-custom > .nav-tabs > li {
+  border-top: 0;
+}
+
+.nav-tabs-custom > .nav-tabs > li.active > a,
+.nav-tabs-custom > .nav-tabs > li.active > a:hover,
+.nav-tabs-custom > .nav-tabs > li.active > a:focus,
+.skin-blue .nav-tabs-custom > .nav-tabs > li.active > a,
+.skin-blue .nav-tabs-custom > .nav-tabs > li.active > a:hover,
+.skin-blue .nav-tabs-custom > .nav-tabs > li.active > a:focus {
+  background-color: var(--ft-burgundy) !important;
+  color: #FFFFFF !important;
+  border-top-color: var(--ft-burgundy) !important;
+  border-left-color: var(--ft-burgundy) !important;
+  border-right-color: var(--ft-burgundy) !important;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a {
+  color: var(--ft-charcoal);
+  border-top-color: transparent;
+}
+
+.nav-tabs-custom > .nav-tabs > li > a:hover {
+  color: var(--ft-burgundy);
+  background-color: var(--ft-offwhite);
+}
+
+/* Tab content background */
+.nav-tabs-custom > .tab-content {
+  background-color: #FFFFFF;
+}
+
+/* Tab box header/title override */
+.nav-tabs-custom > .nav-tabs > li.header,
+.skin-blue .nav-tabs-custom > .nav-tabs > li.header {
+  color: var(--ft-burgundy) !important;
+  font-weight: bold;
+}
+
+/* =============================================================================
+   BUTTONS
+   ============================================================================= */
+
+/* Primary buttons */
+.btn-primary {
+  background-color: var(--ft-burgundy) !important;
+  border-color: var(--ft-burgundy-dark) !important;
+  color: #FFFFFF !important;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.btn-primary:hover {
+  background-color: var(--ft-burgundy-dark) !important;
+  border-color: var(--ft-burgundy-darker) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary:active,
+.btn-primary:focus {
+  background-color: var(--ft-burgundy-darker) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-primary .fa {
+  color: #FFFFFF !important;
+  opacity: 1;
+}
+
+/* Large buttons */
+.btn-lg {
+  padding: 12px 24px;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+
+/* Success buttons */
+.btn-success {
+  background-color: var(--ft-green) !important;
+  border-color: var(--ft-green-dark) !important;
+  color: #FFFFFF !important;
+}
+
+.btn-success:hover {
+  background-color: var(--ft-green-dark) !important;
+  color: #FFFFFF !important;
+}
+
+/* Disabled buttons */
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #B8B4B0 !important;
+  border-color: #A8A4A0 !important;
+  color: var(--ft-offwhite) !important;
+  opacity: 0.7;
+}
+
+/* =============================================================================
+   INFO BOXES
+   ============================================================================= */
+
+.info-box {
+  border-radius: 4px;
+  min-height: 80px;
+  background-color: #FFFFFF;
+  border-left: 4px solid var(--ft-burgundy);
+}
+
+.info-box-icon {
+  background-color: rgba(139, 0, 0, 0.8) !important;
+  color: #FFFFFF !important;
+}
+
+.info-box-content {
+  text-align: center;
+  color: var(--ft-charcoal);
+}
+
+.info-box-number {
+  font-weight: bold;
+  color: var(--ft-burgundy);
+}
+
+/* =============================================================================
+   DATA TABLES
+   ============================================================================= */
+
+.dataTable {
+  background-color: #FFFFFF;
+}
+
+.dataTable thead th {
+  background-color: var(--ft-burgundy) !important;
+  color: #FFFFFF !important;
+  border-bottom: 2px solid var(--ft-burgundy-dark);
+  font-weight: bold;
+}
+
+.dataTable tbody tr:nth-child(even) {
+  background-color: var(--ft-offwhite);
+}
+
+.dataTable tbody tr:hover {
+  background-color: #E8E4E0;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+  border: 1px solid var(--ft-burgundy);
+  border-radius: 4px;
+  padding: 4px 8px;
+}
+
+.dataTables_wrapper .dataTables_filter input:focus {
+  outline: none;
+  border-color: var(--ft-gold);
+  box-shadow: 0 0 3px rgba(197, 169, 95, 0.5);
+}
+
+.dataTables_wrapper .dataTables_length select {
+  border: 1px solid var(--ft-burgundy);
+  border-radius: 4px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background-color: var(--ft-burgundy) !important;
+  color: #FFFFFF !important;
+  border-color: var(--ft-burgundy-dark) !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background-color: var(--ft-burgundy-dark) !important;
+  color: #FFFFFF !important;
+}
+
+/* =============================================================================
+   FORM ELEMENTS
+   ============================================================================= */
+
+.form-control {
+  border: 1px solid #B8B4B0;
+  border-radius: 4px;
+  color: var(--ft-charcoal);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--ft-burgundy);
+  box-shadow: 0 0 3px rgba(139, 0, 0, 0.3);
+}
+
+.selectize-input {
+  border: 1px solid #B8B4B0;
+  border-radius: 4px;
+}
+
+.selectize-input.focus {
+  border-color: var(--ft-burgundy);
+  box-shadow: 0 0 3px rgba(139, 0, 0, 0.3);
+}
+
+.selectize-dropdown .option:hover,
+.selectize-dropdown .option.active {
+  background-color: var(--ft-offwhite);
+  color: var(--ft-burgundy);
+}
+
+/* =============================================================================
+   LOADING SPINNER
+   ============================================================================= */
+
+.shiny-spinner-output-container {
+  position: relative;
+}
+
+.shiny-spinner-container {
+  background-color: rgba(139, 0, 0, 0.05);
+  border-radius: 4px;
+}
+
+/* =============================================================================
+   NOTIFICATIONS
+   ============================================================================= */
+
+.shiny-notification {
+  border-radius: 4px;
+  border-left: 4px solid var(--ft-burgundy) !important;
+  background-color: #FFFFFF;
+  color: var(--ft-charcoal);
+}
+
+.shiny-notification-error {
+  border-left-color: var(--ft-red) !important;
+  background-color: #FFEBEE;
+}
+
+.shiny-notification-message {
+  border-left-color: var(--ft-gold) !important;
+  background-color: var(--ft-offwhite);
+}
+
+.shiny-notification-warning {
+  border-left-color: var(--ft-gold) !important;
+}
+
+/* =============================================================================
+   CODE BLOCKS & WELLS
+   ============================================================================= */
+
+code, pre {
+  font-family: 'Consolas', 'Monaco', monospace;
+  background-color: var(--ft-offwhite);
+  border: 1px solid #E8E4E0;
+  border-radius: 4px;
+  color: var(--ft-charcoal);
+}
+
+.well {
+  background-color: var(--ft-offwhite);
+  border: 1px solid #E8E4E0;
+  border-radius: 4px;
+  color: var(--ft-charcoal);
+}
+
+/* =============================================================================
+   PLOTS
+   ============================================================================= */
+
+.plotly {
+  width: 100% !important;
+}
+
+/* Plot backgrounds */
+.js-plotly-plot .plotly .bg {
+  fill: #FFFFFF;
+}
+
+/* =============================================================================
+   FINAL OVERRIDES - body.skin-blue guarantees we beat AdminLTE
+   Specificity: body(element) + .skin-blue(class) > .skin-blue(class) alone
+   ============================================================================= */
+
+/* ---- SIDEBAR: Force uniform tan background everywhere ---- */
+body.skin-blue .main-sidebar,
+body.skin-blue .main-sidebar .sidebar,
+body.skin-blue .left-side {
+  background-color: var(--ft-offwhite) !important;
+}
+
+/* ---- NUCLEAR BOX HEADER OVERRIDES ---- */
+
+/* All box headers default: white text on burgundy */
+body.skin-blue .box.box-solid > .box-header,
+body.skin-blue .box.box-solid > .box-header *,
+body.skin-blue .box > .box-header,
+body.skin-blue .box > .box-header h3,
+body.skin-blue .box > .box-header .box-title {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Primary boxes: white text */
+body.skin-blue .box.box-solid.box-primary > .box-header,
+body.skin-blue .box.box-solid.box-primary > .box-header *,
+body.skin-blue .box.box-primary > .box-header,
+body.skin-blue .box.box-primary > .box-header * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Success boxes: white text */
+body.skin-blue .box.box-solid.box-success > .box-header,
+body.skin-blue .box.box-solid.box-success > .box-header *,
+body.skin-blue .box.box-success > .box-header,
+body.skin-blue .box.box-success > .box-header * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Info/gold boxes: NOW ALSO white text on burgundy */
+body.skin-blue .box.box-solid.box-info > .box-header,
+body.skin-blue .box.box-solid.box-info > .box-header *,
+body.skin-blue .box.box-info > .box-header,
+body.skin-blue .box.box-info > .box-header * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Collapse/expand toggle buttons */
+body.skin-blue .box .box-header .btn-box-tool,
+body.skin-blue .box .box-header .btn-box-tool i {
+  color: #FFFFFF !important;
+}
+
+/* ---- TAB PANEL active states ---- */
+body.skin-blue .nav-tabs-custom > .nav-tabs > li.active > a,
+body.skin-blue .nav-tabs-custom > .nav-tabs > li.active > a:hover,
+body.skin-blue .nav-tabs-custom > .nav-tabs > li.active > a:focus {
+  color: #FFFFFF !important;
+  background-color: var(--ft-burgundy) !important;
+}
+
+body.skin-blue .nav-tabs-custom > .nav-tabs > li.header {
+  color: var(--ft-burgundy) !important;
+}
+
+/* ---- Override any inline styles from renderUI() ---- */
+[style*="background-color: #8B0000"] *,
+[style*="background-color:#8B0000"] *,
+[style*="background: #8B0000"] *,
+[style*="background:#8B0000"] * {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* =============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================= */
+
+@media (max-width: 768px) {
+  .box {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar-menu > li > a {
+    padding: 10px 12px;
+    font-size: 14px;
+  }
+  
+  .main-header .navbar-brand {
+    margin-left: 40px !important;
+  }
+  
+  .main-header .logo {
+    font-size: 14px;
+  }
+}
+
+/* =============================================================================
+   PRINT STYLES
+   ============================================================================= */
+
+@media print {
+  .sidebar,
+  .main-header .sidebar-toggle {
+    display: none !important;
+  }
+  
+  .main-header .logo {
+    margin-left: 0 !important;
+  }
+  
+  .box {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+/* =============================================================================
+   CRITICAL FIX: Absolute last resort catch-all with body.skin-blue
+   ============================================================================= */
+
+/* Any box-solid header we missed: white text */
+body.skin-blue .box-solid[class*="box-"] > .box-header,
+body.skin-blue .box-solid[class*="box-"] > .box-header .box-title,
+body.skin-blue .box-solid[class*="box-"] > .box-header h3 {
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Ensure sidebar stays tan even when collapsed */
+body.skin-blue.sidebar-mini.sidebar-collapse .main-sidebar,
+body.skin-blue.sidebar-mini.sidebar-collapse .main-sidebar .sidebar {
+  background-color: var(--ft-offwhite) !important;
+}
